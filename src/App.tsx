@@ -23,7 +23,10 @@ const App = (props: Props) => {
                 notes={notes}
                 setNotes={setNotes}
             />
-            <CreateNotes />
+            <CreateNotes
+                setNotes={setNotes}
+                notes={notes}
+            />
         </>
     );
 };
