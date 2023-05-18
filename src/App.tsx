@@ -18,7 +18,7 @@ const App = (props: Props) => {
     return (
         <>
             <Header />
-            <NotesList />
+            <NotesList notes={notes} />
         </>
     );
 };
