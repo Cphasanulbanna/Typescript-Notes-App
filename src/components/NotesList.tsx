@@ -1,6 +1,10 @@
 import * as React from "react";
-import { Note } from "../models/note.model";
+
+//COMPONENTS
 import Notes from "./Notes";
+
+//TYPES
+import { Note } from "../models/note.model";
 
 interface INotesListProps {
     notes: Note[];
@@ -8,10 +12,12 @@ interface INotesListProps {
 }
 
 const NotesList: React.FC<INotesListProps> = ({ notes, setNotes }) => {
+    //DELETE NOTE FUNCTION
     const handleDelete = (id: string) => {
         setNotes(notes?.filter((note) => note?.id !== id));
     };
 
+    //DISPLAY NOTES FUNCTION
     const renderNotes = (): JSX.Element[] => {
         return notes?.map((note) => {
             return (

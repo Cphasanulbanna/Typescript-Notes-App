@@ -1,4 +1,6 @@
 import React, { useRef, useState } from "react";
+
+//TYPES
 import { Note } from "../models/note.model";
 
 interface ICreateNotesProps {
@@ -7,24 +9,32 @@ interface ICreateNotesProps {
 }
 
 const CreateNotes: React.FC<ICreateNotesProps> = ({ notes, setNotes }) => {
+    //ERROR MSG STATE
     const [error, setError] = useState<string>("");
 
+    //INPUT, TEXTAREA ELEMET REFS
     const titleRef = useRef<HTMLInputElement | null>(null);
     const textRef = useRef<HTMLTextAreaElement | null>(null);
     const colorRef = useRef<HTMLInputElement | null>(null);
 
+    //CUSTOM STYLES
     const inputStyle = `{  p-[10px] rounded-[4px] overflow-hidden text-[#111] text-[16px] outline-none}`;
     const inputError =
         error !== ""
             ? "border-red-700 border-[1px] border-[solid]"
             : "border-[#111] border-[1px] border-[solid]";
 
+    //SUBMIT FORM FUNCTION
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
+
+        //VALIDATING FIELDS
         if (titleRef.current?.value === "" || textRef.current?.value === "") {
             return setError("All fields are required");
         }
         setError("");
+
+        //STORING NOTES
         setNotes([
             ...notes,
             {
@@ -36,6 +46,7 @@ const CreateNotes: React.FC<ICreateNotesProps> = ({ notes, setNotes }) => {
             },
         ]);
 
+        //CLEARING INPUT FIELDS
         (titleRef.current as HTMLInputElement).value = "";
         (textRef.current as HTMLTextAreaElement).value = "";
     };

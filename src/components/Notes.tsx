@@ -1,5 +1,6 @@
 import * as React from "react";
 
+//TYPE
 import { Note } from "../models/note.model";
 
 interface INotesProps {
@@ -8,6 +9,7 @@ interface INotesProps {
 }
 
 const Notes: React.FC<INotesProps> = ({ note, handleDelete }) => {
+    //CUSTOM STYLES
     const Border = "rounded-[4px] overflow-hidden";
     const dynamicBg = note.color;
 
