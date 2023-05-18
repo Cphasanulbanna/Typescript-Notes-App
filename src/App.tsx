@@ -16,6 +16,8 @@ const App = (props: Props) => {
             date: new Date().toString(),
         },
     ]);
+
+    console.log(notes, "notes");
     return (
         <>
             <Header />

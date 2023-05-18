@@ -13,8 +13,11 @@ const CreateNotes: React.FC<ICreateNotesProps> = ({ notes, setNotes }) => {
     const textRef = useRef<HTMLTextAreaElement | null>(null);
     const colorRef = useRef<HTMLInputElement | null>(null);
 
-    const inputStyle =
-        "border-[1px] border-[solid] border-[#111] p-[10px] rounded-[4px] overflow-hidden text-[#111] text-[16px] outline-none";
+    const inputStyle = `{  p-[10px] rounded-[4px] overflow-hidden text-[#111] text-[16px] outline-none}`;
+    const inputError =
+        error !== ""
+            ? "border-red-700 border-[1px] border-[solid]"
+            : "border-[#111] border-[1px] border-[solid]";
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
@@ -39,9 +42,10 @@ const CreateNotes: React.FC<ICreateNotesProps> = ({ notes, setNotes }) => {
     return (
         <div className="px-[35px] flex flex-col gap-[15px]">
             <h1 className="text-[26px] text-[#111] font-bold">Create Notes</h1>
+
             <form
                 onSubmit={handleSubmit}
-                className="flex flex-col gap-[15px]"
+                className="flex flex-col gap-[15px] relative"
                 action=""
             >
                 <div className={`input-box ${inputContainerStyle}`}>
@@ -52,7 +56,7 @@ const CreateNotes: React.FC<ICreateNotesProps> = ({ notes, setNotes }) => {
                         Title
                     </label>
                     <input
-                        className={`${inputStyle}`}
+                        className={`${inputStyle} ${inputError}`}
                         type="text"
                         name="title"
                         id="title"
@@ -68,7 +72,7 @@ const CreateNotes: React.FC<ICreateNotesProps> = ({ notes, setNotes }) => {
                         Text
                     </label>
                     <textarea
-                        className={`${inputStyle}`}
+                        className={`${inputStyle} ${inputError}`}
                         placeholder="Enter text"
                         cols={3}
                         id="text"
@@ -84,7 +88,7 @@ const CreateNotes: React.FC<ICreateNotesProps> = ({ notes, setNotes }) => {
                         Text
                     </label>
                     <input
-                        className={`${inputStyle} cursor-pointer`}
+                        className={`${inputStyle} ${inputError} cursor-pointer`}
                         type={"color"}
                         id="color"
                         name="color"
@@ -99,6 +103,11 @@ const CreateNotes: React.FC<ICreateNotesProps> = ({ notes, setNotes }) => {
                 >
                     Save
                 </button>
+                {error && (
+                    <p className="text-[14px] text-red-700 my-[5px] font-bold absolute z-[10] bottom-[60px] left-[120px]">
+                        {error}
+                    </p>
+                )}
             </form>
         </div>
     );

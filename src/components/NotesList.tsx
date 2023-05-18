@@ -24,9 +24,9 @@ const NotesList: React.FC<INotesListProps> = ({ notes, setNotes }) => {
         });
     };
     return (
-        <div className="flex- flex-col p-[35px]">
-            <h1 className="mt-[25px] text-[#111] font-bold text-[26px]">Notes</h1>
-            <div>{renderNotes()}</div>
+        <div className="flex flex-col p-[35px]">
+            <h1 className="mt-[25px] text-[#111] font-bold text-[26px] text-center">Notes</h1>
+            <div className="flex flex-wrap gap-[20px] justify-end">{renderNotes()}</div>
         </div>
     );
 };
