@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Note } from "./models/note.model";
+import Header from "./components/Header";
+import NotesList from "./components/NotesList";
 
 type Props = {};
 
@@ -13,7 +15,12 @@ const App = (props: Props) => {
             date: new Date().toString(),
         },
     ]);
-    return <div>App</div>;
+    return (
+        <>
+            <Header />
+            <NotesList />
+        </>
+    );
 };
 
 export default App;
