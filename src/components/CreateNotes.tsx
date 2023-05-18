@@ -96,7 +96,7 @@ const CreateNotes: React.FC<ICreateNotesProps> = ({ notes, setNotes }) => {
                         htmlFor="color"
                         className="font-semibold"
                     >
-                        Text
+                        Color
                     </label>
                     <input
                         className={`${inputStyle} ${inputError} cursor-pointer`}
