@@ -18,7 +18,10 @@ const App = (props: Props) => {
     return (
         <>
             <Header />
-            <NotesList notes={notes} />
+            <NotesList
+                notes={notes}
+                setNotes={setNotes}
+            />
         </>
     );
 };
