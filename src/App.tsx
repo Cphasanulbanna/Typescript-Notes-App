@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Note } from "./models/note.model";
 import Header from "./components/Header";
 import NotesList from "./components/NotesList";
+import CreateNotes from "./components/CreateNotes";
 
 type Props = {};
 
@@ -22,6 +23,7 @@ const App = (props: Props) => {
                 notes={notes}
                 setNotes={setNotes}
             />
+            <CreateNotes />
         </>
     );
 };
